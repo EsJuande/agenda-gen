@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Notas — boceto</title>
+  <desc>Boceto de carilla de notas. Va al final del mes. Ejemplo: junio 2027.</desc>
+  <g id="notas" inkscape:label="notas">
+    <text id="titulo" x="16" y="22" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="14" font-weight="300">notas</text>
+    <text id="mes" x="52.533" y="22" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.35">junio 2027</text>
+    <g id="renglones" inkscape:label="renglones" fill="none">
+      <line id="renglon-00" x1="16" y1="35.333" x2="138.5" y2="35.333" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-01" x1="16" y1="41.667" x2="138.5" y2="41.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-02" x1="16" y1="48" x2="138.5" y2="48" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-03" x1="16" y1="54.333" x2="138.5" y2="54.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-04" x1="16" y1="60.667" x2="138.5" y2="60.667" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-05" x1="16" y1="67" x2="138.5" y2="67" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-06" x1="16" y1="73.333" x2="138.5" y2="73.333" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-07" x1="16" y1="79.667" x2="138.5" y2="79.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-08" x1="16" y1="86" x2="138.5" y2="86" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-09" x1="16" y1="92.333" x2="138.5" y2="92.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-10" x1="16" y1="98.667" x2="138.5" y2="98.667" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-11" x1="16" y1="105" x2="138.5" y2="105" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-12" x1="16" y1="111.333" x2="138.5" y2="111.333" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-13" x1="16" y1="117.667" x2="138.5" y2="117.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-14" x1="16" y1="124" x2="138.5" y2="124" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-15" x1="16" y1="130.333" x2="138.5" y2="130.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-16" x1="16" y1="136.667" x2="138.5" y2="136.667" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-17" x1="16" y1="143" x2="138.5" y2="143" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-18" x1="16" y1="149.333" x2="138.5" y2="149.333" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-19" x1="16" y1="155.667" x2="138.5" y2="155.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-20" x1="16" y1="162" x2="138.5" y2="162" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-21" x1="16" y1="168.333" x2="138.5" y2="168.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-22" x1="16" y1="174.667" x2="138.5" y2="174.667" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-23" x1="16" y1="181" x2="138.5" y2="181" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-24" x1="16" y1="187.333" x2="138.5" y2="187.333" stroke="#1a1a1a" stroke-width="0.28"/>
+      <line id="renglon-25" x1="16" y1="193.667" x2="138.5" y2="193.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+      <line id="renglon-26" x1="16" y1="200" x2="138.5" y2="200" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+  </g>
+</svg>

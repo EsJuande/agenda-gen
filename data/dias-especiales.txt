@@ -1,0 +1,38 @@
+# Mensajes de la carilla del día.
+# Una fecha por línea: AAAA-MM-DD; mensaje
+# Podés cambiar el texto, borrar una línea o agregar otra.
+# Si un día tiene más de un mensaje, repetí la fecha en otra línea.
+# En la carilla se muestran uno arriba del otro, con una sola estrella.
+
+2027-01-01; Año Nuevo
+2027-02-08; Carnaval
+2027-02-09; Carnaval
+2027-02-14; Día de los Enamorados
+2027-03-04; Día de los Hermanos
+2027-03-20; Inicio del Otoño
+2027-03-24; Día Nacional de la Memoria por la Verdad y la Justicia
+2027-03-25; Jueves Santo
+2027-03-26; Viernes Santo
+2027-04-02; Día del Veterano y de los Caídos en la Guerra de Malvinas
+2027-04-29; Día del Animal
+2027-05-01; Día del Trabajador
+2027-05-25; Día de la Revolución de Mayo
+2027-06-20; Día de la Bandera
+2027-06-20; Día del Padre
+2027-06-21; Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes
+2027-06-21; Inicio del Invierno
+2027-07-09; Día de la Independencia
+2027-07-20; Día del Amigo
+2027-08-16; Paso a la Inmortalidad del Gral. José de San Martín
+2027-09-13; Día del Programador
+2027-09-21; Día del Estudiante
+2027-09-23; Inicio de la Primavera
+2027-09-27; Día del Turismo
+2027-10-11; Día del Respeto a la Diversidad Cultural
+2027-10-17; Día de la Madre
+2027-11-20; Día de la Soberanía Nacional
+2027-12-08; Inmaculada Concepción de María
+2027-12-21; Inicio del Verano
+2027-12-25; Navidad
+2027-12-28; Día de los Inocentes
+2027-12-31; Nochevieja

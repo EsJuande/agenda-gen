@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Portada de mes — boceto</title>
+  <desc>Boceto de portada de mes, A5, alineada a la derecha. Mismo cuerpo en todos los meses. Septiembre, noviembre y diciembre pasan a dos líneas. Ejemplo: junio 2027.</desc>
+  <g id="portada" inkscape:label="portada">
+    <text id="mes-1" x="138.5" y="102" fill="#1a1a1a" text-anchor="end" font-family="Lato Light, Lato" font-size="36" font-weight="300">junio</text>
+    <line id="regla" x1="116.5" y1="112.8" x2="138.5" y2="112.8" stroke="#1a1a1a" stroke-width="0.28"/>
+    <text id="anio" x="138.5" y="120.8" fill="#8a8a8a" text-anchor="end" font-family="Lato" font-size="3.6" letter-spacing="1.2">2027</text>
+  </g>
+</svg>

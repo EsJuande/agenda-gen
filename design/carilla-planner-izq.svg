@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Planner mensual, izquierda — boceto</title>
+  <desc>Boceto del planner mensual, carilla izquierda. El anillado queda a la derecha. Ejemplo: junio 2027.</desc>
+  <g id="lado-izquierdo" inkscape:label="anillado a la derecha" transform="translate(-6, 0)">
+  <g id="planner" inkscape:label="calendario">
+    <text id="mes" x="16" y="22" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="14" font-weight="300">junio</text>
+    <text id="anio" x="48.935" y="22" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.35">2027</text>
+    <text x="36.417" y="32" fill="#8a8a8a" font-family="Lato" font-size="2.6" text-anchor="middle" letter-spacing="0.2">lun</text>
+    <text x="77.25" y="32" fill="#8a8a8a" font-family="Lato" font-size="2.6" text-anchor="middle" letter-spacing="0.2">mar</text>
+    <text x="118.083" y="32" fill="#8a8a8a" font-family="Lato" font-size="2.6" text-anchor="middle" letter-spacing="0.2">mié</text>
+    <rect id="marco" x="16" y="38" width="122.5" height="162" fill="none" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line x1="56.833" y1="38" x2="56.833" y2="200" stroke="#1a1a1a" stroke-width="0.22"/>
+    <line x1="97.667" y1="38" x2="97.667" y2="200" stroke="#1a1a1a" stroke-width="0.22"/>
+    <line x1="16" y1="70.4" x2="138.5" y2="70.4" stroke="#1a1a1a" stroke-width="0.22"/>
+    <line x1="16" y1="102.8" x2="138.5" y2="102.8" stroke="#1a1a1a" stroke-width="0.22"/>
+    <line x1="16" y1="135.2" x2="138.5" y2="135.2" stroke="#1a1a1a" stroke-width="0.22"/>
+    <line x1="16" y1="167.6" x2="138.5" y2="167.6" stroke="#1a1a1a" stroke-width="0.22"/>
+    <text x="59.233" y="46" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">1</text>
+    <text x="100.067" y="46" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">2</text>
+    <text x="18.4" y="78.4" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">7</text>
+    <text x="59.233" y="78.4" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">8</text>
+    <text x="100.067" y="78.4" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">9</text>
+    <text x="18.4" y="110.8" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">14</text>
+    <text x="59.233" y="110.8" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">15</text>
+    <text x="100.067" y="110.8" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">16</text>
+    <text x="18.4" y="143.2" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">21</text>
+    <svg x="26.08" y="138.1" width="3.2" height="3.2" viewBox="2 2 20 20"><path fill="#1a1a1a" d="M12 17L13.56 13.58L17 12L13.56 10.44L12 7L10.43 10.44L7 12L10.43 13.58L12 17M8.17 2.76C9.39 2.26 10.69 2 12 2C13.31 2 14.61 2.26 15.83 2.76C17.04 3.26 18.14 4 19.07 4.93C20 5.86 20.74 6.96 21.24 8.17C21.74 9.39 22 10.69 22 12C22 14.65 20.95 17.2 19.07 19.07C17.2 20.95 14.65 22 12 22C10.69 22 9.39 21.74 8.17 21.24C6.96 20.74 5.86 20 4.93 19.07C3.05 17.2 2 14.65 2 12C2 9.35 3.05 6.8 4.93 4.93C5.86 4 6.96 3.26 8.17 2.76M6.34 17.66C7.84 19.16 9.88 20 12 20C14.12 20 16.16 19.16 17.66 17.66C19.16 16.16 20 14.12 20 12C20 9.88 19.16 7.84 17.66 6.34C16.16 4.84 14.12 4 12 4C9.88 4 7.84 4.84 6.34 6.34C4.84 7.84 4 9.88 4 12C4 14.12 4.84 16.16 6.34 17.66Z" /></svg>
+    <text x="59.233" y="143.2" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">22</text>
+    <text x="100.067" y="143.2" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">23</text>
+    <text x="18.4" y="175.6" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">28</text>
+    <text x="59.233" y="175.6" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">29</text>
+    <text x="100.067" y="175.6" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="5.5" font-weight="300">30</text>
+  </g>
+  </g>
+</svg>

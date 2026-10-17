@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Carilla de dia - boceto</title>
+  <desc>Boceto de carilla de dia de semana, A5. Ejemplo: miercoles 24 de marzo de 2027, feriado.</desc>
+  <g id="cabecera" inkscape:label="cabecera">
+    <text id="numero" x="16" y="35" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="20" font-weight="300">24</text>
+    <text id="dia" x="44" y="25.2" fill="#1a1a1a" font-family="Lato" font-size="3.4" letter-spacing="0.45">mié</text>
+    <text id="mes" x="44" y="30.6" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.45">mar</text>
+    <g id="feriado" inkscape:label="aviso">
+    <svg x="57.07" y="25.25" width="3.6" height="3.6" viewBox="2 2 20 20"><path fill="#1a1a1a" d="M12 17L13.56 13.58L17 12L13.56 10.44L12 7L10.43 10.44L7 12L10.43 13.58L12 17M8.17 2.76C9.39 2.26 10.69 2 12 2C13.31 2 14.61 2.26 15.83 2.76C17.04 3.26 18.14 4 19.07 4.93C20 5.86 20.74 6.96 21.24 8.17C21.74 9.39 22 10.69 22 12C22 14.65 20.95 17.2 19.07 19.07C17.2 20.95 14.65 22 12 22C10.69 22 9.39 21.74 8.17 21.24C6.96 20.74 5.86 20 4.93 19.07C3.05 17.2 2 14.65 2 12C2 9.35 3.05 6.8 4.93 4.93C5.86 4 6.96 3.26 8.17 2.76M6.34 17.66C7.84 19.16 9.88 20 12 20C14.12 20 16.16 19.16 17.66 17.66C19.16 16.16 20 14.12 20 12C20 9.88 19.16 7.84 17.66 6.34C16.16 4.84 14.12 4 12 4C9.88 4 7.84 4.84 6.34 6.34C4.84 7.84 4 9.88 4 12C4 14.12 4.84 16.16 6.34 17.66Z"/></svg>
+    <text x="62.47" y="27.65" fill="#1a1a1a" font-family="Lato" font-size="2.2">Día Nacional de la Memoria por la Verdad y la Justicia</text>
+    </g>
+    <svg id="signo" x="120.15" y="22.7" width="7" height="7" viewBox="0 0 24 24"><path fill="#1a1a1a" d="M16,2C14.95,2 13.91,2.27 13,2.81C12.64,3 12.3,3.26 12,3.54C11.7,3.26 11.36,3 11,2.81C10.09,2.27 9.05,2 8,2A6,6 0 0,0 2,8A6,6 0 0,0 8,14V12A4,4 0 0,1 4,8A4,4 0 0,1 8,4C9,4 10,4.39 10.75,5.1C10.84,5.18 10.92,5.27 11,5.36V22H13V5.36C13.08,5.27 13.16,5.18 13.25,5.1C14.85,3.58 17.38,3.64 18.91,5.25C20.43,6.85 20.36,9.38 18.76,10.9C18,11.61 17.03,12 16,12V14A6,6 0 0,0 22,8A6,6 0 0,0 16,2Z"/></svg>
+    <svg id="fase-lunar" x="125.5" y="20.2" width="12" height="12" viewBox="-6 -6 12 12"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><circle cx="0" cy="0" r="2.55" fill="#1a1a1a"/></svg>
+  </g>
+  <g id="horario" inkscape:label="horario" fill="none">
+    <g id="hora-08" inkscape:label="8.00">
+      <text x="23.16" y="48" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">8.00</text>
+      <line x1="26.16" y1="48" x2="138.5" y2="48" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-08-30" inkscape:label="8.30">
+      <line x1="26.16" y1="54.333" x2="138.5" y2="54.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-09" inkscape:label="9.00">
+      <text x="23.16" y="60.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">9.00</text>
+      <line x1="26.16" y1="60.667" x2="138.5" y2="60.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-09-30" inkscape:label="9.30">
+      <line x1="26.16" y1="67" x2="138.5" y2="67" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-10" inkscape:label="10.00">
+      <text x="23.16" y="73.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">10.00</text>
+      <line x1="26.16" y1="73.333" x2="138.5" y2="73.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-10-30" inkscape:label="10.30">
+      <line x1="26.16" y1="79.667" x2="138.5" y2="79.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-11" inkscape:label="11.00">
+      <text x="23.16" y="86" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">11.00</text>
+      <line x1="26.16" y1="86" x2="138.5" y2="86" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-11-30" inkscape:label="11.30">
+      <line x1="26.16" y1="92.333" x2="138.5" y2="92.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-12" inkscape:label="12.00">
+      <text x="23.16" y="98.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">12.00</text>
+      <line x1="26.16" y1="98.667" x2="138.5" y2="98.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-12-30" inkscape:label="12.30">
+      <line x1="26.16" y1="105" x2="138.5" y2="105" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-13" inkscape:label="13.00">
+      <text x="23.16" y="111.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">13.00</text>
+      <line x1="26.16" y1="111.333" x2="138.5" y2="111.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-13-30" inkscape:label="13.30">
+      <line x1="26.16" y1="117.667" x2="138.5" y2="117.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-14" inkscape:label="14.00">
+      <text x="23.16" y="124" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">14.00</text>
+      <line x1="26.16" y1="124" x2="138.5" y2="124" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-14-30" inkscape:label="14.30">
+      <line x1="26.16" y1="130.333" x2="138.5" y2="130.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-15" inkscape:label="15.00">
+      <text x="23.16" y="136.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">15.00</text>
+      <line x1="26.16" y1="136.667" x2="138.5" y2="136.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-15-30" inkscape:label="15.30">
+      <line x1="26.16" y1="143" x2="138.5" y2="143" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-16" inkscape:label="16.00">
+      <text x="23.16" y="149.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">16.00</text>
+      <line x1="26.16" y1="149.333" x2="138.5" y2="149.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-16-30" inkscape:label="16.30">
+      <line x1="26.16" y1="155.667" x2="138.5" y2="155.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-17" inkscape:label="17.00">
+      <text x="23.16" y="162" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">17.00</text>
+      <line x1="26.16" y1="162" x2="138.5" y2="162" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-17-30" inkscape:label="17.30">
+      <line x1="26.16" y1="168.333" x2="138.5" y2="168.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-18" inkscape:label="18.00">
+      <text x="23.16" y="174.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">18.00</text>
+      <line x1="26.16" y1="174.667" x2="138.5" y2="174.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-18-30" inkscape:label="18.30">
+      <line x1="26.16" y1="181" x2="138.5" y2="181" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-19" inkscape:label="19.00">
+      <text x="23.16" y="187.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">19.00</text>
+      <line x1="26.16" y1="187.333" x2="138.5" y2="187.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="hora-19-30" inkscape:label="19.30">
+      <line x1="26.16" y1="193.667" x2="138.5" y2="193.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="hora-20" inkscape:label="20.00">
+      <text x="23.16" y="200" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">20.00</text>
+      <line x1="26.16" y1="200" x2="138.5" y2="200" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+  </g>
+</svg>

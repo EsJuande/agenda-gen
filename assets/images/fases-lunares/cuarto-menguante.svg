@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="24mm" height="24mm" viewBox="-6 -6 12 12">
+  <title>Cuarto menguante</title>
+  <desc>Hemisferio sur: la luna creciente se ilumina desde la izquierda.</desc>
+  <circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 Z" fill="#1a1a1a"/>
+</svg>

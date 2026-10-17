@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Carilla de finde - boceto</title>
+  <desc>Boceto de sabado y domingo en una carilla A5. Ejemplo: 1 y 2 de mayo de 2027. Sabado de 8.00 a 14.00. Domingo con renglones intercalados.</desc>
+  <g id="sabado" inkscape:label="sabado">
+    <text id="sabado-numero" x="16" y="35" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="20" font-weight="300">1</text>
+    <text id="sabado-dia" x="32.4" y="25.2" fill="#1a1a1a" font-family="Lato" font-size="3.4" letter-spacing="0.45">sáb</text>
+    <text id="sabado-mes" x="32.4" y="30.6" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.45">may</text>
+    <g id="sabado-feriado" inkscape:label="aviso">
+    <svg x="68.52" y="25.25" width="3.6" height="3.6" viewBox="2 2 20 20"><path fill="#1a1a1a" d="M12 17L13.56 13.58L17 12L13.56 10.44L12 7L10.43 10.44L7 12L10.43 13.58L12 17M8.17 2.76C9.39 2.26 10.69 2 12 2C13.31 2 14.61 2.26 15.83 2.76C17.04 3.26 18.14 4 19.07 4.93C20 5.86 20.74 6.96 21.24 8.17C21.74 9.39 22 10.69 22 12C22 14.65 20.95 17.2 19.07 19.07C17.2 20.95 14.65 22 12 22C10.69 22 9.39 21.74 8.17 21.24C6.96 20.74 5.86 20 4.93 19.07C3.05 17.2 2 14.65 2 12C2 9.35 3.05 6.8 4.93 4.93C5.86 4 6.96 3.26 8.17 2.76M6.34 17.66C7.84 19.16 9.88 20 12 20C14.12 20 16.16 19.16 17.66 17.66C19.16 16.16 20 14.12 20 12C20 9.88 19.16 7.84 17.66 6.34C16.16 4.84 14.12 4 12 4C9.88 4 7.84 4.84 6.34 6.34C4.84 7.84 4 9.88 4 12C4 14.12 4.84 16.16 6.34 17.66Z"/></svg>
+    <text x="73.92" y="27.65" fill="#1a1a1a" font-family="Lato" font-size="2.2">Día del trabajador</text>
+    </g>
+    <svg id="sabado-signo" x="120.15" y="22.7" width="7" height="7" viewBox="0 0 24 24"><path fill="#1a1a1a" d="M15.59,9C17.7,7.74 19,5.46 19,3H17A5,5 0 0,1 12,8A5,5 0 0,1 7,3H5C5,5.46 6.3,7.74 8.41,9C5.09,11 4,15.28 6,18.6C7.97,21.92 12.27,23 15.59,21C18.91,19.04 20,14.74 18,11.42C17.42,10.43 16.58,9.59 15.59,9M12,20A5,5 0 0,1 7,15A5,5 0 0,1 12,10A5,5 0 0,1 17,15A5,5 0 0,1 12,20Z"/></svg>
+    <svg id="sabado-fase-lunar" x="125.5" y="20.2" width="12" height="12" viewBox="-6 -6 12 12"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 A1.7,2.55 0 0 0 0,-2.55 Z" fill="#1a1a1a"/></svg>
+  <g id="sabado-horario" inkscape:label="horario" fill="none">
+    <g id="sabado-hora-08" inkscape:label="8.00">
+      <text x="23.16" y="48" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">8.00</text>
+      <line x1="26.16" y1="48" x2="138.5" y2="48" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-08-30" inkscape:label="8.30">
+      <line x1="26.16" y1="54.333" x2="138.5" y2="54.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-09" inkscape:label="9.00">
+      <text x="23.16" y="60.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">9.00</text>
+      <line x1="26.16" y1="60.667" x2="138.5" y2="60.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-09-30" inkscape:label="9.30">
+      <line x1="26.16" y1="67" x2="138.5" y2="67" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-10" inkscape:label="10.00">
+      <text x="23.16" y="73.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">10.00</text>
+      <line x1="26.16" y1="73.333" x2="138.5" y2="73.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-10-30" inkscape:label="10.30">
+      <line x1="26.16" y1="79.667" x2="138.5" y2="79.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-11" inkscape:label="11.00">
+      <text x="23.16" y="86" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">11.00</text>
+      <line x1="26.16" y1="86" x2="138.5" y2="86" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-11-30" inkscape:label="11.30">
+      <line x1="26.16" y1="92.333" x2="138.5" y2="92.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-12" inkscape:label="12.00">
+      <text x="23.16" y="98.667" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">12.00</text>
+      <line x1="26.16" y1="98.667" x2="138.5" y2="98.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-12-30" inkscape:label="12.30">
+      <line x1="26.16" y1="105" x2="138.5" y2="105" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-13" inkscape:label="13.00">
+      <text x="23.16" y="111.333" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">13.00</text>
+      <line x1="26.16" y1="111.333" x2="138.5" y2="111.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+    <g id="sabado-hora-13-30" inkscape:label="13.30">
+      <line x1="26.16" y1="117.667" x2="138.5" y2="117.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    </g>
+    <g id="sabado-hora-14" inkscape:label="14.00">
+      <text x="23.16" y="124" fill="#1a1a1a" font-family="Lato" font-size="2.8" text-anchor="end" dominant-baseline="central">14.00</text>
+      <line x1="26.16" y1="124" x2="138.5" y2="124" stroke="#1a1a1a" stroke-width="0.28"/>
+    </g>
+  </g>
+  </g>
+  <g id="domingo" inkscape:label="domingo">
+    <text id="domingo-numero" x="16" y="149" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="20" font-weight="300">2</text>
+    <text id="domingo-dia" x="32.4" y="139.2" fill="#1a1a1a" font-family="Lato" font-size="3.4" letter-spacing="0.45">dom</text>
+    <text id="domingo-mes" x="32.4" y="144.6" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.45">may</text>
+    <svg id="domingo-signo" x="120.15" y="136.7" width="7" height="7" viewBox="0 0 24 24"><path fill="#1a1a1a" d="M15.59,9C17.7,7.74 19,5.46 19,3H17A5,5 0 0,1 12,8A5,5 0 0,1 7,3H5C5,5.46 6.3,7.74 8.41,9C5.09,11 4,15.28 6,18.6C7.97,21.92 12.27,23 15.59,21C18.91,19.04 20,14.74 18,11.42C17.42,10.43 16.58,9.59 15.59,9M12,20A5,5 0 0,1 7,15A5,5 0 0,1 12,10A5,5 0 0,1 17,15A5,5 0 0,1 12,20Z"/></svg>
+    <svg id="domingo-fase-lunar" x="125.5" y="134.2" width="12" height="12" viewBox="-6 -6 12 12"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 A1.7,2.55 0 0 0 0,-2.55 Z" fill="#1a1a1a"/></svg>
+  <g id="domingo-renglones" inkscape:label="renglones" fill="none">
+    <line id="domingo-renglon-01" x1="16" y1="162" x2="138.5" y2="162" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="domingo-renglon-02" x1="16" y1="168.333" x2="138.5" y2="168.333" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    <line id="domingo-renglon-03" x1="16" y1="174.667" x2="138.5" y2="174.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="domingo-renglon-04" x1="16" y1="181" x2="138.5" y2="181" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    <line id="domingo-renglon-05" x1="16" y1="187.333" x2="138.5" y2="187.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="domingo-renglon-06" x1="16" y1="193.667" x2="138.5" y2="193.667" stroke="#7a7a7a" stroke-width="0.22" stroke-dasharray="0.35 0.85" stroke-linecap="round"/>
+    <line id="domingo-renglon-07" x1="16" y1="200" x2="138.5" y2="200" stroke="#1a1a1a" stroke-width="0.28"/>
+  </g>
+  </g>
+</svg>

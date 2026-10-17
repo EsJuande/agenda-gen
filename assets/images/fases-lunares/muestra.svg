@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="36mm" viewBox="0 0 210 36">
+<rect width="210" height="36" fill="white"/>
+<g transform="translate(12 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/></g>
+<text x="12" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">nueva</text>
+<g transform="translate(38 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 0 0,2.55 A1.7,2.55 0 0 1 0,-2.55 Z" fill="#1a1a1a"/></g>
+<text x="38" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">creciente</text>
+<g transform="translate(64 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 0 0,2.55 Z" fill="#1a1a1a"/></g>
+<text x="64" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">cuarto creciente</text>
+<g transform="translate(90 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 0 0,2.55 A1.7,2.55 0 0 0 0,-2.55 Z" fill="#1a1a1a"/></g>
+<text x="90" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">gibosa creciente</text>
+<g transform="translate(116 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><circle cx="0" cy="0" r="2.55" fill="#1a1a1a"/></g>
+<text x="116" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">llena</text>
+<g transform="translate(142 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 A1.7,2.55 0 0 1 0,-2.55 Z" fill="#1a1a1a"/></g>
+<text x="142" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">gibosa menguante</text>
+<g transform="translate(168 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 Z" fill="#1a1a1a"/></g>
+<text x="168" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">cuarto menguante</text>
+<g transform="translate(194 14)"><circle cx="0" cy="0" r="3.15" fill="none" stroke="#1a1a1a" stroke-width="0.35"/><path d="M0,-2.55 A2.55,2.55 0 0 1 0,2.55 A1.7,2.55 0 0 0 0,-2.55 Z" fill="#1a1a1a"/></g>
+<text x="194" y="30" font-family="Lato" font-size="2.1" text-anchor="middle" fill="#1a1a1a">menguante</text>
+</svg>
