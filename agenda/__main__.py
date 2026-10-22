@@ -52,7 +52,11 @@ def main(argv):
         comprobar()
         comprobar_geometria()
         carillas = carillas_iniciales(ANIO)
-        _escribir(carillas, RAIZ / "output" / f"{ANIO}-primeras", RAIZ / "output" / f"primeras-{ANIO}.pdf")
+        _escribir(
+            carillas,
+            RAIZ / "output" / f"{ANIO}-primeras",
+            RAIZ / "output" / f"00 - primeras-{ANIO}.pdf",
+        )
         return 0
     comprobar()
     comprobar_geometria()
@@ -60,7 +64,7 @@ def main(argv):
     _escribir(
         carillas,
         RAIZ / "output" / f"{ANIO}-{mes:02d}",
-        RAIZ / "output" / f"{MESES[mes - 1]}-{ANIO}.pdf",
+        RAIZ / "output" / f"{mes:02d} - {MESES[mes - 1]}-{ANIO}.pdf",
     )
     return 0
 

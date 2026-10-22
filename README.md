@@ -28,7 +28,7 @@ python3 -m agenda junio
 
 El mes va en minúscula, o como número del 1 al 12 (`python -m agenda 6`, `python3 -m agenda 6`).
 
-Escribe el PDF en `output/junio-2027.pdf` y una carilla SVG por archivo en `output/2027-06/`.
+Escribe el PDF en `output/06 - junio-2027.pdf` y una carilla SVG por archivo en `output/2027-06/`. El número del nombre es el mes, siempre con dos dígitos: `01 - enero-2027.pdf`, `09 - septiembre-2027.pdf`, `12 - diciembre-2027.pdf`.
 
 ### Primeras páginas
 
@@ -40,7 +40,7 @@ python -m agenda primeras
 python3 -m agenda primeras
 ```
 
-Arma datos personales, feriados, cumpleaños y el planner anual, y cierra con notas para que la portada de enero quede en página impar. El PDF queda en `output/primeras-2027.pdf` y las carillas en `output/2027-primeras/`.
+Arma datos personales, feriados, cumpleaños y el planner anual, y cierra con notas para que la portada de enero quede en página impar. El PDF queda en `output/00 - primeras-2027.pdf` y las carillas en `output/2027-primeras/`. El `00` lo deja delante de los doce meses.
 
 ### La agenda completa
 
