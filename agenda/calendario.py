@@ -168,18 +168,25 @@ _FASES_LOCALES = _fases_locales()
 
 
 def fase_de(dia):
-    previa = None
-    for fecha, nombre in _FASES_LOCALES:
-        if fecha <= dia:
-            previa = (fecha, nombre)
-        else:
-            break
-    if previa is None:
-        raise ValueError(f"No hay fase lunar conocida para el {dia.isoformat()}.")
-    fecha, nombre = previa
-    if fecha == dia:
-        return nombre
-    return _ENTRE_FASES[nombre]
+    """Fase del día. Si la tabla todavía no llega, usa la del día siguiente."""
+    consulta = dia
+    while True:
+        previa = None
+        hay_posterior = False
+        for fecha, nombre in _FASES_LOCALES:
+            if fecha <= consulta:
+                previa = (fecha, nombre)
+            else:
+                hay_posterior = True
+                break
+        if previa is not None:
+            fecha, nombre = previa
+            if fecha == consulta:
+                return nombre
+            return _ENTRE_FASES[nombre]
+        if not hay_posterior:
+            raise ValueError(f"No hay fase lunar conocida para el {dia.isoformat()}.")
+        consulta += timedelta(days=1)
 
 
 @dataclass(frozen=True)
@@ -293,6 +300,10 @@ def comprobar():
     assert signo_de(date(2027, 5, 1)) == "taurus"
     assert signo_de(date(2027, 6, 20)) == "gemini"
     assert signo_de(date(2027, 6, 21)) == "cancer"
+    assert fase_de(date(2027, 1, 1)) == "nueva"
+    assert fase_de(date(2027, 1, 6)) == "nueva"
+    assert fase_de(date(2027, 1, 7)) == "nueva"
+    assert fase_de(date(2027, 1, 8)) == "creciente"
     assert fase_de(date(2027, 5, 1)) == "menguante"
     assert fase_de(date(2027, 6, 1)) == "menguante"
     assert fase_de(date(2027, 6, 4)) == "nueva"
@@ -307,9 +318,7 @@ def comprobar():
     assert [carilla.tipo for carilla in junio[-3:]] == ["notas", "notas", "notas"]
     assert sum(1 for carilla in junio if carilla.tipo == "dia") == 22
     assert sum(1 for carilla in junio if carilla.tipo == "finde") == 4
-    # Enero queda afuera: la tabla de fases empieza el 7. El resto del año
-    # alcanza para ver que las notas cierran en página impar.
-    for mes in range(2, 13):
+    for mes in range(1, 13):
         carillas = carillas_del_mes(2027, mes)
         cantidad = 0
         for carilla in reversed(carillas):

@@ -5,7 +5,7 @@ from datetime import timedelta
 from functools import lru_cache
 from xml.sax.saxutils import escape
 
-from .calendario import MESES, RAIZ
+from .calendario import MESES, MESES_CORTOS, RAIZ
 from .tipografia import LIGHT, REGULAR
 
 ICONOS = RAIZ / "assets" / "images"
@@ -47,13 +47,8 @@ PASO_ENTRE = HUECO_NUMERO
 # El corte de un mismo mensaje va más cerrado que ese interlineado.
 PASO_MISMO = 2.8
 TAMANO_PORTADA = 36
-# Misma medida para todos los meses. Los tres que no entran se parten
-# antes de la terminación compartida, sin bajar el cuerpo.
-CORTES_MES = {
-    "septiembre": ("sep", "tiembre"),
-    "noviembre": ("nov", "iembre"),
-    "diciembre": ("dic", "iembre"),
-}
+TAMANO_PORTADA_SECUNDARIO = 3.6
+INTERLETRADO_PORTADA = 1.2
 
 # Los renglones de las 8.00 a las 20.00. El paso es el mismo en todas las hojas.
 Y_RENGLON = 48
@@ -76,6 +71,11 @@ def y_renglon(indice):
 
 def x_rotulo(numero):
     return NUMERO_X + len(str(numero)) * ANCHO_CIFRA + HUECO_NUMERO
+
+
+def x_espejo(x):
+    """Refleja x dentro del área de contenido, de 16 a 138.5."""
+    return MARGEN_ANILLADO + BORDE_DER - x
 
 
 def _attrs(pares):
@@ -199,33 +199,56 @@ def partir_mensaje(mensaje, disponible):
     return (mensaje,)
 
 
-def _cabecera(prefijo, dia, numero_y):
-    """Encabezado de un día. prefijo vacío en la carilla de semana."""
+def _cabecera(prefijo, dia, numero_y, espejo=False):
+    """Encabezado de un día. En la carilla impar, fecha, signo y luna van en espejo.
+
+    El orden de izquierda a derecha queda: fase, signo, aviso, día y mes, número.
+    prefijo vacío en la carilla de semana.
+    """
     ident = (lambda nombre: f"{prefijo}-{nombre}" if prefijo else nombre)
     x_texto = x_rotulo(dia.fecha.day)
-    lineas = [
-        f'  <g id="{ident("cabecera") if not prefijo else prefijo}" inkscape:label="{prefijo or "cabecera"}">',
-        f'    <text id="{ident("numero")}" x="{n(NUMERO_X)}" y="{n(numero_y)}" '
+    if espejo:
+        x_numero = x_espejo(NUMERO_X)
+        x_fecha = x_espejo(x_texto)
+        ancla = ' text-anchor="end"'
+        signo_x = x_espejo(SIGNO_X + SIGNO_LADO)
+        luna_x = x_espejo(LUNA_X + LUNA_LADO)
+    else:
+        x_numero = NUMERO_X
+        x_fecha = x_texto
+        ancla = ""
+        signo_x = SIGNO_X
+        luna_x = LUNA_X
+    grupo = (
+        f'  <g id="{ident("cabecera") if not prefijo else prefijo}" '
+        f'inkscape:label="{prefijo or "cabecera"}">'
+    )
+    numero = (
+        f'    <text id="{ident("numero")}" x="{n(x_numero)}" y="{n(numero_y)}"{ancla} '
         f'fill="{TINTA}" font-family="Lato Light, Lato" font-size="20" font-weight="300">'
-        f"{dia.fecha.day}</text>",
-        f'    <text id="{ident("dia")}" x="{n(x_texto)}" y="{n(numero_y - DY_DIA)}" '
+        f"{dia.fecha.day}</text>"
+    )
+    fecha = [
+        f'    <text id="{ident("dia")}" x="{n(x_fecha)}" y="{n(numero_y - DY_DIA)}"{ancla} '
         f'fill="{TINTA}" font-family="Lato" font-size="3.4" letter-spacing="0.45">'
         f"{escape(dia.nombre_corto)}</text>",
-        f'    <text id="{ident("mes")}" x="{n(x_texto)}" y="{n(numero_y - DY_MES)}" '
+        f'    <text id="{ident("mes")}" x="{n(x_fecha)}" y="{n(numero_y - DY_MES)}"{ancla} '
         f'fill="{GRIS}" font-family="Lato" font-size="3.4" letter-spacing="0.45">'
         f"{escape(dia.mes_corto)}</text>",
     ]
-    if dia.mensajes:
-        lineas.extend(_aviso(ident, dia, numero_y, x_texto))
+    aviso = _aviso(ident, dia, numero_y, x_texto, espejo) if dia.mensajes else []
     signo_y = numero_y - DY_SIGNO
     luna_y = numero_y - DY_LUNA
-    lineas.append("    " + _signo(ident("signo"), SIGNO_X, signo_y, dia.signo))
-    lineas.append("    " + _luna(ident("fase-lunar"), LUNA_X, luna_y, dia.fase))
-    lineas.append("  </g>")
+    signo = "    " + _signo(ident("signo"), signo_x, signo_y, dia.signo)
+    luna = "    " + _luna(ident("fase-lunar"), luna_x, luna_y, dia.fase)
+    if espejo:
+        lineas = [grupo, luna, signo, *aviso, *fecha, numero, "  </g>"]
+    else:
+        lineas = [grupo, numero, *fecha, *aviso, signo, luna, "  </g>"]
     return lineas
 
 
-def _aviso(ident, dia, numero_y, x_texto):
+def _aviso(ident, dia, numero_y, x_texto, espejo=False):
     anchos_fecha = (
         REGULAR.ancho(dia.nombre_corto, 3.4, 0.45),
         REGULAR.ancho(dia.mes_corto, 3.4, 0.45),
@@ -247,7 +270,13 @@ def _aviso(ident, dia, numero_y, x_texto):
             textos.append(linea)
     ancho_texto = max(REGULAR.ancho(texto, TAMANO_AVISO) for texto in textos)
     ancho_bloque = ESTRELLA + HUECO_ESTRELLA + ancho_texto
-    x_estrella = x_aviso(fecha_derecha, ancho_bloque)
+    if espejo:
+        # El bloque sigue estrella y texto hacia la derecha, centrado en el hueco reflejado.
+        borde_signo = x_espejo(SIGNO_X)
+        borde_fecha = x_espejo(x_texto) - ancho_fecha
+        x_estrella = borde_signo + (borde_fecha - borde_signo - ancho_bloque) / 2
+    else:
+        x_estrella = x_aviso(fecha_derecha, ancho_bloque)
     x_mensaje = x_estrella + ESTRELLA + HUECO_ESTRELLA
     medio = (offsets[0] + offsets[-1]) / 2
     centro = numero_y - DY_AVISO
@@ -321,65 +350,60 @@ def _renglones_domingo():
     return lineas
 
 
-def carilla_dia(dia, titulo, desc):
-    cuerpo = _cabecera("", dia, 35)
+def carilla_dia(dia, titulo, desc, espejo=False):
+    cuerpo = _cabecera("", dia, 35, espejo)
     cuerpo.extend(_horario("", 8, 20, True, HORA_LINEA_X))
     return _documento(titulo, desc, "\n".join(cuerpo))
 
 
-def carilla_finde(dias, titulo, desc):
+def carilla_finde(dias, titulo, desc, espejo=False):
     sabado = next((dia for dia in dias if dia.fecha.weekday() == 5), None)
     domingo = next((dia for dia in dias if dia.fecha.weekday() == 6), None)
     cuerpo = []
     if sabado:
-        cuerpo.extend(_cabecera("sabado", sabado, 35))
+        cuerpo.extend(_cabecera("sabado", sabado, 35, espejo))
         # El horario queda dentro del grupo sábado, como en el boceto.
         cuerpo = cuerpo[:-1]
         cuerpo.extend("  " + linea if linea.startswith("  ") else linea for linea in _horario("sabado", 8, 14, True, HORA_LINEA_X))
         cuerpo.append("  </g>")
     if domingo:
-        cuerpo.extend(_cabecera("domingo", domingo, 149))
+        cuerpo.extend(_cabecera("domingo", domingo, 149, espejo))
         cuerpo = cuerpo[:-1]
         cuerpo.extend(_renglones_domingo())
         cuerpo.append("  </g>")
     return _documento(titulo, desc, "\n".join(cuerpo))
 
 
-def lineas_del_mes(nombre):
-    """Mismo cuerpo en todos los meses. A la derecha, lejos del anillado."""
-    lineas = CORTES_MES.get(nombre, (nombre,))
-    ancho = BORDE_DER - MARGEN_ANILLADO
-    for linea in lineas:
-        if LIGHT.ancho(linea, TAMANO_PORTADA) > ancho:
-            raise ValueError(f"{linea!r} no entra en la portada a {TAMANO_PORTADA} mm.")
-    return lineas
-
-
 def carilla_portada(anio, mes, titulo, desc):
+    """El cuerpo grande es el mes en tres letras. Debajo, el nombre completo y el año, en una línea."""
+    corto = MESES_CORTOS[mes - 1]
     nombre = MESES[mes - 1]
-    lineas_nombre = lineas_del_mes(nombre)
-    # La última línea, la regla y el año quedan siempre en el mismo lugar.
     baseline = 102
-    paso = 40
     regla = baseline + TAMANO_PORTADA * 0.30
-    anio_y = regla + 8
-    interletrado_anio = 1.2
-    textos = []
-    for indice, linea in enumerate(lineas_nombre):
-        y = baseline - (len(lineas_nombre) - 1 - indice) * paso
-        textos.append(
-            f'    <text id="mes-{indice + 1}" x="{n(BORDE_DER)}" y="{n(y)}" fill="{TINTA}" '
-            f'text-anchor="end" font-family="Lato Light, Lato" font-size="{n(TAMANO_PORTADA)}" '
-            f'font-weight="300">{escape(linea)}</text>'
-        )
+    linea = regla + 8
+    hueco = TAMANO_PORTADA_SECUNDARIO
+    ancho_anio = REGULAR.ancho(str(anio), TAMANO_PORTADA_SECUNDARIO, INTERLETRADO_PORTADA)
+    ancho_nombre = REGULAR.ancho(nombre, TAMANO_PORTADA_SECUNDARIO, INTERLETRADO_PORTADA)
+    x_mes = BORDE_DER - ancho_anio - hueco
+    ancho = BORDE_DER - MARGEN_ANILLADO
+    if LIGHT.ancho(corto, TAMANO_PORTADA) > ancho:
+        raise ValueError(f"{corto!r} no entra en la portada a {TAMANO_PORTADA} mm.")
+    if ancho_nombre + hueco + ancho_anio > ancho:
+        raise ValueError(f"{nombre} {anio} no entra debajo del mes corto.")
     cuerpo = "\n".join(
         [
             '  <g id="portada" inkscape:label="portada">',
-            *textos,
+            f'    <text id="mes-corto" x="{n(BORDE_DER)}" y="{n(baseline)}" fill="{TINTA}" '
+            f'text-anchor="end" font-family="Lato Light, Lato" font-size="{n(TAMANO_PORTADA)}" '
+            f'font-weight="300">{escape(corto)}</text>',
             f'    <line id="regla" x1="{n(BORDE_DER - 22)}" y1="{n(regla)}" '
             f'x2="{n(BORDE_DER)}" y2="{n(regla)}" stroke="{TINTA}" stroke-width="0.28"/>',
-            f'    <text id="anio" x="{n(BORDE_DER)}" y="{n(anio_y)}" fill="{GRIS}" '
-            f'text-anchor="end" font-family="Lato" font-size="3.6" letter-spacing="{n(interletrado_anio)}">{anio}</text>',
+            f'    <text id="mes" x="{n(x_mes)}" y="{n(linea)}" fill="{GRIS}" '
+            f'text-anchor="end" font-family="Lato" font-size="{n(TAMANO_PORTADA_SECUNDARIO)}" '
+            f'letter-spacing="{n(INTERLETRADO_PORTADA)}">{escape(nombre)}</text>',
+            f'    <text id="anio" x="{n(BORDE_DER)}" y="{n(linea)}" fill="{GRIS}" '
+            f'text-anchor="end" font-family="Lato" font-size="{n(TAMANO_PORTADA_SECUNDARIO)}" '
+            f'letter-spacing="{n(INTERLETRADO_PORTADA)}">{anio}</text>',
             "  </g>",
         ]
     )
@@ -391,6 +415,15 @@ Y_PLANNER_ROTULO = 32
 Y_PLANNER_0 = 38
 Y_PLANNER_1 = 200
 TAMANO_CELDA = 5.5
+FILAS_PLANNER = 5
+PAD_CELDA = 2.4
+# La línea de base del número queda a 8 del borde superior.
+Y_CIFRA = 8
+# Cap height de Lato Light, 1415/2000. El día posterior deja el mismo aire.
+PAD_CIFRA = Y_CIFRA - (1415 / 2000) * TAMANO_CELDA
+HUECO_ESTRELLA_CELDA = 1.3
+DY_ESTRELLA_CELDA = 5.1
+LADO_ESTRELLA_CELDA = 3.2
 
 COLUMNAS_IZQ = (
     ("lun", (0,)),
@@ -426,25 +459,58 @@ def _semanas(anio, mes, dias):
     return semanas
 
 
-def _numero_celda(x, y, dia):
+def _grupos_de_filas(semanas):
+    """Cinco filas. La sexta semana, si existe, comparte la última."""
+    if len(semanas) > 6:
+        raise ValueError(f"El mes no entra en la grilla de cinco filas: {len(semanas)} semanas.")
+    grupos = []
+    for fila in range(FILAS_PLANNER):
+        if fila < 4:
+            grupos.append([semanas[fila]] if fila < len(semanas) else [[None] * 7])
+            continue
+        grupo = [semanas[i] for i in (4, 5) if i < len(semanas)]
+        grupos.append(grupo or [[None] * 7])
+    return grupos
+
+
+def _dias_celda(grupo, indices):
+    dias = []
+    for semana in grupo:
+        for indice in indices:
+            dia = semana[indice]
+            if dia is not None:
+                dias.append(dia)
+    return dias
+
+
+def _numero_celda(x, y, dia, derecha=False):
+    """x es el borde izquierdo, o el derecho si el día va al extremo inferior."""
+    cifras = LIGHT.ancho(str(dia.fecha.day), TAMANO_CELDA)
+    ancla = ' text-anchor="end"' if derecha else ""
     lineas = [
-        f'    <text x="{n(x)}" y="{n(y)}" fill="{TINTA}" font-family="Lato Light, Lato" '
+        f'    <text x="{n(x)}" y="{n(y)}"{ancla} fill="{TINTA}" font-family="Lato Light, Lato" '
         f'font-size="{n(TAMANO_CELDA)}" font-weight="300">{dia.fecha.day}</text>'
     ]
     if dia.mensajes:
-        cifras = LIGHT.ancho(str(dia.fecha.day), TAMANO_CELDA)
-        lineas.append("    " + _estrella(x + cifras + 1.3, y - 5.1, 3.2))
+        if derecha:
+            x_estrella = x - cifras - HUECO_ESTRELLA_CELDA - LADO_ESTRELLA_CELDA
+        else:
+            x_estrella = x + cifras + HUECO_ESTRELLA_CELDA
+        lineas.append("    " + _estrella(x_estrella, y - DY_ESTRELLA_CELDA, LADO_ESTRELLA_CELDA))
     return lineas
 
 
 def carilla_planner(anio, mes, dias, lado, titulo, desc):
-    """Izquierda: lun, mar, mié. Derecha: jue, vie y el finde en una columna."""
+    """Izquierda: lun, mar, mié. Derecha: jue, vie y el finde en una columna.
+
+    La grilla es siempre de cinco filas. Sábado y domingo comparten casillero,
+    y una sexta semana se pliega en la última fila del mismo modo.
+    """
     nombre = MESES[mes - 1]
     columnas = COLUMNAS_IZQ if lado == "izq" else COLUMNAS_DER
-    semanas = _semanas(anio, mes, dias)
-    filas = len(semanas)
+    grupos = _grupos_de_filas(_semanas(anio, mes, dias))
     ancho = (BORDE_DER - MARGEN_ANILLADO) / len(columnas)
-    alto = (Y_PLANNER_1 - Y_PLANNER_0) / filas
+    alto = (Y_PLANNER_1 - Y_PLANNER_0) / FILAS_PLANNER
     lineas = ['  <g id="planner" inkscape:label="calendario">']
     if lado == "izq":
         tamano = 14
@@ -481,25 +547,28 @@ def carilla_planner(anio, mes, dias, lado, titulo, desc):
             f'    <line x1="{n(x)}" y1="{n(Y_PLANNER_0)}" x2="{n(x)}" y2="{n(Y_PLANNER_1)}" '
             f'stroke="{TINTA}" stroke-width="0.22"/>'
         )
-    for fila in range(1, filas):
+    for fila in range(1, FILAS_PLANNER):
         y = Y_PLANNER_0 + fila * alto
         lineas.append(
             f'    <line x1="{n(MARGEN_ANILLADO)}" y1="{n(y)}" x2="{n(BORDE_DER)}" y2="{n(y)}" '
             f'stroke="{TINTA}" stroke-width="0.22"/>'
         )
-    for fila, semana in enumerate(semanas):
-        y = Y_PLANNER_0 + fila * alto + 8
+    for fila, grupo in enumerate(grupos):
+        y_superior = Y_PLANNER_0 + fila * alto + Y_CIFRA
+        y_posterior = Y_PLANNER_0 + (fila + 1) * alto - PAD_CIFRA
         for indice, (_, dias_columna) in enumerate(columnas):
             x = MARGEN_ANILLADO + indice * ancho
-            if len(dias_columna) == 1:
-                dia = semana[dias_columna[0]]
-                if dia is not None:
-                    lineas.extend(_numero_celda(x + 2.4, y, dia))
+            x_der = BORDE_DER if indice == len(columnas) - 1 else x + ancho
+            dias_en_celda = _dias_celda(grupo, dias_columna)
+            if len(dias_en_celda) > 2:
+                raise ValueError("Un casillero no puede compartir más de dos días.")
+            if not dias_en_celda:
                 continue
-            for mitad, indice_dia in enumerate(dias_columna):
-                dia = semana[indice_dia]
-                if dia is not None:
-                    lineas.extend(_numero_celda(x + mitad * ancho / 2 + 2.2, y, dia))
+            lineas.extend(_numero_celda(x + PAD_CELDA, y_superior, dias_en_celda[0]))
+            if len(dias_en_celda) > 1:
+                lineas.extend(
+                    _numero_celda(x_der - PAD_CELDA, y_posterior, dias_en_celda[-1], derecha=True)
+                )
     lineas.append("  </g>")
     return _documento(titulo, desc, "\n".join(lineas))
 
@@ -548,7 +617,7 @@ def svg_de_carilla(carilla, boceto=False, pagina=1):
     if carilla.tipo == "portada":
         titulo = "Portada de mes — boceto" if boceto else f"Portada de {nombre} {carilla.anio}"
         desc = (
-            f"Boceto de portada de mes, A5, alineada a la derecha. Mismo cuerpo en todos los meses. Septiembre, noviembre y diciembre pasan a dos líneas. Ejemplo: {nombre} {carilla.anio}."
+            f"Boceto de portada de mes, A5, alineada a la derecha. El cuerpo grande es el mes en tres letras. Debajo, el nombre completo y el año en la misma línea. Ejemplo: {nombre} {carilla.anio}."
             if boceto
             else f"Portada de {nombre} de {carilla.anio}."
         )
@@ -566,7 +635,7 @@ def svg_de_carilla(carilla, boceto=False, pagina=1):
     if carilla.tipo == "planner-der":
         titulo = "Planner mensual, derecha — boceto" if boceto else f"Calendario de {nombre} {carilla.anio}"
         desc = (
-            f"Boceto del planner mensual, carilla derecha. Jueves, viernes y finde. Ejemplo: {nombre} {carilla.anio}."
+            f"Boceto del planner mensual, carilla derecha. Jueves, viernes y finde. En un casillero compartido, el día posterior va abajo a la derecha. Ejemplo: {nombre} {carilla.anio}."
             if boceto
             else f"Jueves, viernes y finde de {nombre} de {carilla.anio}."
         )
@@ -588,6 +657,7 @@ def svg_de_carilla(carilla, boceto=False, pagina=1):
                 dia,
                 f"{dia.fecha.isoformat()}",
                 f"{dia.nombre_corto} {dia.fecha.day} de {nombre} de {carilla.anio}.",
+                espejo=pagina % 2 == 1,
             ),
             pagina,
         )
@@ -598,6 +668,7 @@ def svg_de_carilla(carilla, boceto=False, pagina=1):
                 carilla.dias,
                 "finde " + "-".join(dia.fecha.isoformat() for dia in carilla.dias),
                 f"Sábado y domingo, {fechas} de {nombre} de {carilla.anio}.",
+                espejo=pagina % 2 == 1,
             ),
             pagina,
         )
@@ -676,15 +747,21 @@ def comprobar_geometria():
         assert origen - der + 1e-6 >= HUECO_NUMERO
     assert PASO_ENTRE == HUECO_NUMERO
     assert PASO_MISMO < PASO_ENTRE
-    for nombre in (
-        "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
-        "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+    for mes, corto, nombre in zip(
+        range(1, 13),
+        ("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"),
+        (
+            "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+            "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+        ),
     ):
-        lineas_del_mes(nombre)
-    assert lineas_del_mes("junio") == ("junio",)
-    assert lineas_del_mes("septiembre") == ("sep", "tiembre")
-    assert lineas_del_mes("noviembre") == ("nov", "iembre")
-    assert lineas_del_mes("diciembre") == ("dic", "iembre")
+        portada = carilla_portada(2027, mes, nombre, nombre)
+        assert f'font-size="{n(TAMANO_PORTADA)}" font-weight="300">{corto}</text>' in portada
+        linea = 102 + TAMANO_PORTADA * 0.30 + 8
+        assert f'y="{n(linea)}" fill="{GRIS}" text-anchor="end" font-family="Lato" font-size="{n(TAMANO_PORTADA_SECUNDARIO)}" letter-spacing="{n(INTERLETRADO_PORTADA)}">{nombre}</text>' in portada
+        assert f'y="{n(102 + TAMANO_PORTADA * 0.30 + 8)}" fill="{GRIS}" text-anchor="end" font-family="Lato" font-size="{n(TAMANO_PORTADA_SECUNDARIO)}" letter-spacing="{n(INTERLETRADO_PORTADA)}">2027</text>' in portada
+        assert portada.index(f">{nombre}</text>") < portada.index(">2027</text>")
+        assert portada.count('font-size="36"') == 1
     from .calendario import carillas_del_mes
 
     carillas = carillas_del_mes(2027, 6)
@@ -695,3 +772,47 @@ def comprobar_geometria():
             assert f'transform="translate({desplazamiento}, 0)"' in svg
         else:
             assert "lado-izquierdo" not in svg
+        if carilla.tipo in ("dia", "finde"):
+            numeros = re.findall(r'id="[^"]*numero" ([^>]*)>', svg)
+            lunas = re.findall(r'id="[^"]*fase-lunar" x="([^"]+)"', svg)
+            signos = re.findall(r'id="[^"]*signo" x="([^"]+)"', svg)
+            assert numeros and lunas and signos
+            assert 'x1="26.16"' in svg
+            if indice % 2 == 1:
+                assert all('x="138.5"' in attrs and 'text-anchor="end"' in attrs for attrs in numeros)
+                assert set(lunas) == {n(x_espejo(LUNA_X + LUNA_LADO))}
+                assert set(signos) == {n(x_espejo(SIGNO_X + SIGNO_LADO))}
+            else:
+                assert all('x="16"' in attrs and "text-anchor" not in attrs for attrs in numeros)
+                assert set(lunas) == {n(LUNA_X)}
+                assert set(signos) == {n(SIGNO_X)}
+    from datetime import date
+
+    from .calendario import carillas_del_mes as _carillas
+
+    def _planner(anio, mes, lado):
+        carilla = next(c for c in _carillas(anio, mes) if c.tipo == lado)
+        return svg_de_carilla(carilla, pagina=2 if lado == "planner-izq" else 3)
+
+    ancho_col = (BORDE_DER - MARGEN_ANILLADO) / 3
+    alto_fila = (Y_PLANNER_1 - Y_PLANNER_0) / FILAS_PLANNER
+    junio_der = _planner(2027, 6, "planner-der")
+    x_sab = MARGEN_ANILLADO + 2 * ancho_col + PAD_CELDA
+    assert f'x="{n(x_sab)}" y="{n(Y_PLANNER_0 + Y_CIFRA)}"' in junio_der
+    y_dom = Y_PLANNER_0 + alto_fila - PAD_CIFRA
+    assert f'x="{n(BORDE_DER - PAD_CELDA)}" y="{n(y_dom)}" text-anchor="end"' in junio_der
+    assert ">6</text>" in junio_der
+    y_20 = Y_PLANNER_0 + 3 * alto_fila - PAD_CIFRA
+    assert f'x="{n(BORDE_DER - PAD_CELDA)}" y="{n(y_20)}" text-anchor="end"' in junio_der
+    assert ">20</text>" in junio_der
+    cifras = LIGHT.ancho("20", TAMANO_CELDA)
+    x_estrella = BORDE_DER - PAD_CELDA - cifras - HUECO_ESTRELLA_CELDA - LADO_ESTRELLA_CELDA
+    assert f'x="{n(x_estrella)}" y="{n(y_20 - DY_ESTRELLA_CELDA)}"' in junio_der
+    assert date(2027, 5, 1).weekday() == 5
+    mayo_izq = _planner(2027, 5, "planner-izq")
+    y_24 = Y_PLANNER_0 + 4 * alto_fila + Y_CIFRA
+    assert f'x="{n(MARGEN_ANILLADO + PAD_CELDA)}" y="{n(y_24)}"' in mayo_izq
+    x_31 = MARGEN_ANILLADO + ancho_col - PAD_CELDA
+    y_31 = Y_PLANNER_0 + 5 * alto_fila - PAD_CIFRA
+    assert f'x="{n(x_31)}" y="{n(y_31)}" text-anchor="end"' in mayo_izq
+    assert ">31</text>" in mayo_izq

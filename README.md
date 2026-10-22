@@ -12,6 +12,28 @@ Año: **2027**. La semana empieza el lunes.
 
 Python se ocupa de lo que cambia con el año: qué día cae cada fecha, cuándo un fin de semana comparte carilla, los feriados nacionales de Argentina y cuántas carillas de notas hacen falta para que el mes siguiente abra del lado derecho.
 
+## Generar
+
+Los comandos se corren desde la raíz del proyecto. Sirve empezar con `python` o con `python3`.
+
+### Un mes
+
+```
+python -m agenda junio
+```
+
+```
+python3 -m agenda junio
+```
+
+El mes va en minúscula, o como número del 1 al 12 (`python -m agenda 6`, `python3 -m agenda 6`).
+
+Escribe el PDF en `output/junio-2027.pdf` y una carilla SVG por archivo en `output/2027-06/`.
+
+### La agenda completa
+
+No hay un comando que arme la agenda de una vez. Cada mes se genera por separado, con el comando de arriba, de enero a diciembre. Las secciones anteriores a los meses (portada, datos personales, feriados, cumpleaños y planner anual) todavía no las escribe el generador.
+
 ## Estructura de la agenda
 
 1. **Portada y contraportada**
@@ -112,4 +134,4 @@ Las ocho fases lunares están en [`assets/images/fases-lunares/`](assets/images/
 
 ## Estado
 
-El generador está en el paquete `agenda`. Un mes se arma con `python -m agenda junio` y escribe los SVG y el PDF en `output/`. Los bocetos de portada, planner y notas están en `design/`.
+El generador está en el paquete `agenda`. Cómo correr un mes, con `python` o con `python3`, está en [Generar](#generar). Los bocetos de portada, planner y notas están en `design/`.
