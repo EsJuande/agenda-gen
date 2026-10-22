@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Feriados nacionales — boceto</title>
+  <desc>Feriados nacionales de Argentina, en el día en que se observan.</desc>
+  <g id="lado-izquierdo" inkscape:label="anillado a la derecha" transform="translate(-6, 0)">
+  <g id="feriados" inkscape:label="feriados">
+    <text id="titulo" x="16" y="22" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="14" font-weight="300">feriados</text>
+    <text id="detalle" x="67.884" y="22" fill="#8a8a8a" font-family="Lato" font-size="3.4" letter-spacing="0.35">2027</text>
+    <text x="16" y="46" fill="#8a8a8a" font-family="Lato" font-size="3.2">vie</text>
+    <text x="30" y="46" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">1</text>
+    <text x="33" y="46" fill="#8a8a8a" font-family="Lato" font-size="3.2">ene</text>
+    <text x="46" y="46" fill="#1a1a1a" font-family="Lato" font-size="3.2">Año Nuevo</text>
+    <text x="16" y="54.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">lun</text>
+    <text x="30" y="54.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">8</text>
+    <text x="33" y="54.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">feb</text>
+    <text x="46" y="54.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Carnaval</text>
+    <text x="16" y="63" fill="#8a8a8a" font-family="Lato" font-size="3.2">mar</text>
+    <text x="30" y="63" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">9</text>
+    <text x="33" y="63" fill="#8a8a8a" font-family="Lato" font-size="3.2">feb</text>
+    <text x="46" y="63" fill="#1a1a1a" font-family="Lato" font-size="3.2">Carnaval</text>
+    <text x="16" y="71.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">mié</text>
+    <text x="30" y="71.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">24</text>
+    <text x="33" y="71.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">mar</text>
+    <text x="46" y="71.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día Nacional de la Memoria por la Verdad y la Justicia</text>
+    <text x="16" y="80" fill="#8a8a8a" font-family="Lato" font-size="3.2">jue</text>
+    <text x="30" y="80" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">25</text>
+    <text x="33" y="80" fill="#8a8a8a" font-family="Lato" font-size="3.2">mar</text>
+    <text x="46" y="80" fill="#1a1a1a" font-family="Lato" font-size="3.2">Jueves Santo</text>
+    <text x="16" y="88.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">vie</text>
+    <text x="30" y="88.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">26</text>
+    <text x="33" y="88.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">mar</text>
+    <text x="46" y="88.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Viernes Santo</text>
+    <text x="16" y="97" fill="#8a8a8a" font-family="Lato" font-size="3.2">vie</text>
+    <text x="30" y="97" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">2</text>
+    <text x="33" y="97" fill="#8a8a8a" font-family="Lato" font-size="3.2">abr</text>
+    <text x="46" y="97" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día del Veterano y de los Caídos en la Guerra de Malvinas</text>
+    <text x="16" y="105.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">sáb</text>
+    <text x="30" y="105.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">1</text>
+    <text x="33" y="105.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">may</text>
+    <text x="46" y="105.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día del Trabajador</text>
+    <text x="16" y="114" fill="#8a8a8a" font-family="Lato" font-size="3.2">mar</text>
+    <text x="30" y="114" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">25</text>
+    <text x="33" y="114" fill="#8a8a8a" font-family="Lato" font-size="3.2">may</text>
+    <text x="46" y="114" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día de la Revolución de Mayo</text>
+    <text x="16" y="122.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">dom</text>
+    <text x="30" y="122.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">20</text>
+    <text x="33" y="122.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">jun</text>
+    <text x="46" y="122.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Paso a la Inmortalidad del General Manuel Belgrano</text>
+    <text x="16" y="131" fill="#8a8a8a" font-family="Lato" font-size="3.2">lun</text>
+    <text x="30" y="131" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">21</text>
+    <text x="33" y="131" fill="#8a8a8a" font-family="Lato" font-size="3.2">jun</text>
+    <text x="46" y="131" fill="#1a1a1a" font-family="Lato" font-size="3.2">Paso a la Inmortalidad del Gral. Martín Miguel de Güemes</text>
+    <text x="127.448" y="129.4" fill="#1a1a1a" font-family="Lato" font-size="2.2">*</text>
+    <text x="16" y="139.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">vie</text>
+    <text x="30" y="139.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">9</text>
+    <text x="33" y="139.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">jul</text>
+    <text x="46" y="139.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día de la Independencia</text>
+    <text x="16" y="148" fill="#8a8a8a" font-family="Lato" font-size="3.2">lun</text>
+    <text x="30" y="148" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">16</text>
+    <text x="33" y="148" fill="#8a8a8a" font-family="Lato" font-size="3.2">ago</text>
+    <text x="46" y="148" fill="#1a1a1a" font-family="Lato" font-size="3.2">Paso a la Inmortalidad del Gral. José de San Martín</text>
+    <text x="117.651" y="146.4" fill="#1a1a1a" font-family="Lato" font-size="2.2">*</text>
+    <text x="16" y="156.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">lun</text>
+    <text x="30" y="156.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">11</text>
+    <text x="33" y="156.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">oct</text>
+    <text x="46" y="156.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día del Respeto a la Diversidad Cultural</text>
+    <text x="102.358" y="154.9" fill="#1a1a1a" font-family="Lato" font-size="2.2">*</text>
+    <text x="16" y="165" fill="#8a8a8a" font-family="Lato" font-size="3.2">sáb</text>
+    <text x="30" y="165" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">20</text>
+    <text x="33" y="165" fill="#8a8a8a" font-family="Lato" font-size="3.2">nov</text>
+    <text x="46" y="165" fill="#1a1a1a" font-family="Lato" font-size="3.2">Día de la Soberanía Nacional</text>
+    <text x="86.902" y="163.4" fill="#1a1a1a" font-family="Lato" font-size="2.2">*</text>
+    <text x="16" y="173.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">mié</text>
+    <text x="30" y="173.5" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">8</text>
+    <text x="33" y="173.5" fill="#8a8a8a" font-family="Lato" font-size="3.2">dic</text>
+    <text x="46" y="173.5" fill="#1a1a1a" font-family="Lato" font-size="3.2">Inmaculada Concepción de María</text>
+    <text x="16" y="182" fill="#8a8a8a" font-family="Lato" font-size="3.2">sáb</text>
+    <text x="30" y="182" fill="#8a8a8a" font-family="Lato" font-size="3.2" text-anchor="end">25</text>
+    <text x="33" y="182" fill="#8a8a8a" font-family="Lato" font-size="3.2">dic</text>
+    <text x="46" y="182" fill="#1a1a1a" font-family="Lato" font-size="3.2">Navidad</text>
+    <text id="nota" x="16" y="198" fill="#8a8a8a" font-family="Lato" font-size="2.8">* Feriados trasladables</text>
+  </g>
+  </g>
+</svg>

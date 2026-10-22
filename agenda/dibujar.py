@@ -581,16 +581,17 @@ def carilla_planner_der(anio, mes, dias, titulo, desc):
     return carilla_planner(anio, mes, dias, "der", titulo, desc)
 
 
-def carilla_notas(anio, mes, titulo, desc):
+def carilla_notas(anio, mes, titulo, desc, rotulo=""):
     nombre = MESES[mes - 1]
     tamano = 14
     x_mes = MARGEN_ANILLADO + LIGHT.ancho("notas", tamano) + 3.5
+    subtitulo = rotulo or f"{nombre} {anio}"
     lineas = [
         '  <g id="notas" inkscape:label="notas">',
         f'    <text id="titulo" x="{n(MARGEN_ANILLADO)}" y="22" fill="{TINTA}" '
         f'font-family="Lato Light, Lato" font-size="{n(tamano)}" font-weight="300">notas</text>',
         f'    <text id="mes" x="{n(x_mes)}" y="22" fill="{GRIS}" font-family="Lato" '
-        f'font-size="3.4" letter-spacing="0.35">{escape(nombre)} {anio}</text>',
+        f'font-size="3.4" letter-spacing="0.35">{escape(subtitulo)}</text>',
         '    <g id="renglones" inkscape:label="renglones" fill="none">',
     ]
     # Dos renglones por encima de las 8.00, en el mismo paso, para acercarlos al título.
@@ -613,6 +614,10 @@ def carilla_notas(anio, mes, titulo, desc):
 
 
 def svg_de_carilla(carilla, boceto=False, pagina=1):
+    from .primeras import svg_primeras
+
+    if carilla.tipo in ("datos", "feriados", "cumpleanos", "anual-izq", "anual-der"):
+        return margen_del_libro(svg_primeras(carilla, boceto), pagina)
     nombre = MESES[carilla.mes - 1]
     if carilla.tipo == "portada":
         titulo = "Portada de mes — boceto" if boceto else f"Portada de {nombre} {carilla.anio}"
@@ -649,7 +654,10 @@ def svg_de_carilla(carilla, boceto=False, pagina=1):
             if boceto
             else f"Notas de {nombre} de {carilla.anio}."
         )
-        return margen_del_libro(carilla_notas(carilla.anio, carilla.mes, titulo, desc), pagina)
+        return margen_del_libro(
+            carilla_notas(carilla.anio, carilla.mes, titulo, desc, rotulo=carilla.rotulo),
+            pagina,
+        )
     if carilla.tipo == "dia":
         dia = carilla.dias[0]
         return margen_del_libro(
@@ -682,9 +690,18 @@ def escribir_bocetos(carillas):
         "planner-izq": DESIGN / "carilla-planner-izq.svg",
         "planner-der": DESIGN / "carilla-planner-der.svg",
         "notas": DESIGN / "carilla-notas.svg",
+        "datos": DESIGN / "carilla-datos.svg",
+        "feriados": DESIGN / "carilla-feriados.svg",
+        "cumpleanos": DESIGN / "carilla-cumpleanos.svg",
+        "anual-izq": DESIGN / "carilla-anual-izq.svg",
+        "anual-der": DESIGN / "carilla-anual-der.svg",
     }
-    # El boceto del planner izquierdo es la carilla par: el anillado va a la derecha.
-    pagina_boceto = {"planner-izq": 2}
+    # Las carillas pares llevan el anillado a la derecha.
+    pagina_boceto = {
+        "planner-izq": 2,
+        "feriados": 2,
+        "anual-izq": 4,
+    }
     escritos = []
     for carilla in carillas:
         destino = destinos.get(carilla.tipo)
@@ -763,7 +780,9 @@ def comprobar_geometria():
         assert portada.index(f">{nombre}</text>") < portada.index(">2027</text>")
         assert portada.count('font-size="36"') == 1
     from .calendario import carillas_del_mes
+    from .primeras import nombres_entran
 
+    assert nombres_entran()
     carillas = carillas_del_mes(2027, 6)
     desplazamiento = n(MARGEN - MARGEN_ANILLADO)
     for indice, carilla in enumerate(carillas, start=1):

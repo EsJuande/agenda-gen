@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="148.5mm" height="210mm" viewBox="0 0 148.5 210">
+  <title>Datos personales — boceto</title>
+  <desc>Carilla de datos personales. Nombre, dos contactos y notas de salud.</desc>
+  <g id="datos" inkscape:label="datos">
+    <text id="titulo" x="16" y="22" fill="#1a1a1a" font-family="Lato Light, Lato" font-size="14" font-weight="300">datos personales</text>
+    <text id="pertenece" x="16" y="40" fill="#1a1a1a" font-family="Lato" font-size="3.8">Esta Agenda pertenece a</text>
+    <line id="nombre-1" x1="16" y1="53" x2="138.5" y2="53" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="nombre-2" x1="16" y1="65.667" x2="138.5" y2="65.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    <text id="contacto" x="16" y="76.333" fill="#1a1a1a" font-family="Lato" font-size="3.8">Contactos de emergencia</text>
+    <svg x="16" y="84.133" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="8" r="3.2"/><path d="M6.2 19.6c.7-3.6 2.8-5.4 5.8-5.4s5.1 1.8 5.8 5.4"/></g></svg>
+    <line id="contacto-1-1" x1="22.2" y1="89.333" x2="73.25" y2="89.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <svg x="81.25" y="84.133" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="8" r="3.2"/><path d="M6.2 19.6c.7-3.6 2.8-5.4 5.8-5.4s5.1 1.8 5.8 5.4"/></g></svg>
+    <line id="contacto-2-1" x1="87.45" y1="89.333" x2="138.5" y2="89.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <svg x="16" y="96.8" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18.2h2"/></g></svg>
+    <line id="contacto-1-2" x1="22.2" y1="102" x2="73.25" y2="102" stroke="#1a1a1a" stroke-width="0.28"/>
+    <svg x="81.25" y="96.8" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18.2h2"/></g></svg>
+    <line id="contacto-2-2" x1="87.45" y1="102" x2="138.5" y2="102" stroke="#1a1a1a" stroke-width="0.28"/>
+    <svg x="16" y="109.467" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="6" width="17" height="12" rx="1.2"/><path d="M4.2 7.2 12 13l7.8-5.8"/></g></svg>
+    <line id="contacto-1-3" x1="22.2" y1="114.667" x2="73.25" y2="114.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    <svg x="81.25" y="109.467" width="4.4" height="4.4" viewBox="0 0 24 24"><g fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="6" width="17" height="12" rx="1.2"/><path d="M4.2 7.2 12 13l7.8-5.8"/></g></svg>
+    <line id="contacto-2-3" x1="87.45" y1="114.667" x2="138.5" y2="114.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    <text id="alergias" x="16" y="125.333" fill="#1a1a1a" font-family="Lato" font-size="3.8">Alergias</text>
+    <text id="medicamentos" x="81.25" y="125.333" fill="#1a1a1a" font-family="Lato" font-size="3.8">Medicamentos</text>
+    <line id="alergias-1" x1="16" y1="138.333" x2="73.25" y2="138.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="medicamentos-1" x1="81.25" y1="138.333" x2="138.5" y2="138.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="alergias-2" x1="16" y1="151" x2="73.25" y2="151" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="medicamentos-2" x1="81.25" y1="151" x2="138.5" y2="151" stroke="#1a1a1a" stroke-width="0.28"/>
+    <text id="consideraciones" x="16" y="161.667" fill="#1a1a1a" font-family="Lato" font-size="3.8">Consideraciones especiales</text>
+    <line id="consideraciones-1" x1="16" y1="174.667" x2="138.5" y2="174.667" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="consideraciones-2" x1="16" y1="187.333" x2="138.5" y2="187.333" stroke="#1a1a1a" stroke-width="0.28"/>
+    <line id="consideraciones-3" x1="16" y1="200" x2="138.5" y2="200" stroke="#1a1a1a" stroke-width="0.28"/>
+  </g>
+</svg>

@@ -205,12 +205,39 @@ class Dia:
         return MESES_CORTOS[self.fecha.month - 1]
 
 
+# Fecha observada, nombre y si es trasladable. Los trasladables ya están corridos.
+FERIADOS = (
+    (1, 1, "Año Nuevo", False),
+    (2, 8, "Carnaval", False),
+    (2, 9, "Carnaval", False),
+    (3, 24, "Día Nacional de la Memoria por la Verdad y la Justicia", False),
+    (3, 25, "Jueves Santo", False),
+    (3, 26, "Viernes Santo", False),
+    (4, 2, "Día del Veterano y de los Caídos en la Guerra de Malvinas", False),
+    (5, 1, "Día del Trabajador", False),
+    (5, 25, "Día de la Revolución de Mayo", False),
+    (6, 20, "Paso a la Inmortalidad del General Manuel Belgrano", False),
+    (6, 21, "Paso a la Inmortalidad del Gral. Martín Miguel de Güemes", True),
+    (7, 9, "Día de la Independencia", False),
+    (8, 16, "Paso a la Inmortalidad del Gral. José de San Martín", True),
+    (10, 11, "Día del Respeto a la Diversidad Cultural", True),
+    (11, 20, "Día de la Soberanía Nacional", True),
+    (12, 8, "Inmaculada Concepción de María", False),
+    (12, 25, "Navidad", False),
+)
+
+
+def feriados_del_anio(anio):
+    return tuple((date(anio, mes, dia), nombre) for mes, dia, nombre, _ in FERIADOS)
+
+
 @dataclass(frozen=True)
 class Carilla:
     tipo: str
     anio: int
     mes: int
     dias: tuple[Dia, ...] = ()
+    rotulo: str = ""
 
     def archivo(self, indice):
         if self.tipo == "portada":
@@ -239,7 +266,17 @@ class Carilla:
         if self.tipo == "planner-der":
             return f"Planner de {nombre}, jueves a domingo"
         if self.tipo == "notas":
-            return f"Notas de {nombre}"
+            return "Notas" if self.rotulo else f"Notas de {nombre}"
+        if self.tipo == "datos":
+            return "Datos personales"
+        if self.tipo == "feriados":
+            return "Feriados nacionales"
+        if self.tipo == "cumpleanos":
+            return "Cumpleaños"
+        if self.tipo == "anual-izq":
+            return "Planner anual, izquierda"
+        if self.tipo == "anual-der":
+            return "Planner anual, derecha"
         partes = []
         for dia in self.dias:
             texto = f"{dia.nombre_corto} {dia.fecha.day}"
@@ -284,13 +321,28 @@ def carillas_del_mes(anio, mes, mensajes=None):
         else:
             carillas.append(Carilla("dia", anio, mes, (_dia(cursor, mensajes),)))
             cursor += timedelta(days=1)
-    # Notas al final. Como mínimo una hoja (las dos carillas). Si con eso
-    # la portada del mes siguiente no cae en página impar, se suma una carilla.
-    carillas.append(Carilla("notas", anio, mes))
-    carillas.append(Carilla("notas", anio, mes))
+    return _cerrar_con_notas(carillas, anio, mes)
+
+
+def _cerrar_con_notas(carillas, anio, mes, rotulo=""):
+    """Como mínimo una hoja de notas. La página siguiente queda impar."""
+    carillas.append(Carilla("notas", anio, mes, rotulo=rotulo))
+    carillas.append(Carilla("notas", anio, mes, rotulo=rotulo))
     if (len(carillas) + 1) % 2 == 0:
-        carillas.append(Carilla("notas", anio, mes))
+        carillas.append(Carilla("notas", anio, mes, rotulo=rotulo))
     return carillas
+
+
+def carillas_iniciales(anio):
+    """Datos, feriados, cumpleaños y planner anual. Después, enero abre a la derecha."""
+    carillas = [
+        Carilla("datos", anio, 1),
+        Carilla("feriados", anio, 1),
+        Carilla("cumpleanos", anio, 1),
+        Carilla("anual-izq", anio, 1),
+        Carilla("anual-der", anio, 1),
+    ]
+    return _cerrar_con_notas(carillas, anio, 1, rotulo=str(anio))
 
 
 def comprobar():
@@ -328,3 +380,13 @@ def comprobar():
         assert cantidad in (2, 3)
         assert cantidad == sum(1 for carilla in carillas if carilla.tipo == "notas")
         assert (len(carillas) + 1) % 2 == 1
+    primeras = carillas_iniciales(2027)
+    assert [carilla.tipo for carilla in primeras[:5]] == [
+        "datos", "feriados", "cumpleanos", "anual-izq", "anual-der",
+    ]
+    assert [carilla.tipo for carilla in primeras[-3:]] == ["notas", "notas", "notas"]
+    assert (len(primeras) + 1) % 2 == 1
+    assert len(feriados_del_anio(2027)) == 17
+    assert date(2027, 1, 1).weekday() == 4
+    assert date(2027, 6, 21).weekday() == 0
+    assert date(2027, 8, 16).weekday() == 0

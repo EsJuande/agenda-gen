@@ -30,16 +30,28 @@ El mes va en minúscula, o como número del 1 al 12 (`python -m agenda 6`, `pyth
 
 Escribe el PDF en `output/junio-2027.pdf` y una carilla SVG por archivo en `output/2027-06/`.
 
+### Primeras páginas
+
+```
+python -m agenda primeras
+```
+
+```
+python3 -m agenda primeras
+```
+
+Arma datos personales, feriados, cumpleaños y el planner anual, y cierra con notas para que la portada de enero quede en página impar. El PDF queda en `output/primeras-2027.pdf` y las carillas en `output/2027-primeras/`.
+
 ### La agenda completa
 
-No hay un comando que arme la agenda de una vez. Cada mes se genera por separado, con el comando de arriba, de enero a diciembre. Las secciones anteriores a los meses (portada, datos personales, feriados, cumpleaños y planner anual) todavía no las escribe el generador.
+No hay un comando que arme la agenda de una vez. Primero se generan las primeras páginas y después cada mes, de enero a diciembre. La portada y la contraportada todavía no las escribe el generador.
 
 ## Estructura de la agenda
 
 1. **Portada y contraportada**
 2. **Datos personales**
 3. **Feriados nacionales** de Argentina
-4. **Tracker de cumpleaños**
+4. **Cumpleaños**
 5. **Planner anual**, en dos carillas a libro abierto
 6. **Los 12 meses**
    1. **Portada del mes.** Siempre del lado derecho a libro abierto.
@@ -60,7 +72,7 @@ En el PDF, la página impar queda a la derecha y la par a la izquierda. El marge
 Hay dos productos, y los dos salen del mismo armado de páginas:
 
 - **SVG, una carilla por archivo.** Es el archivo de trabajo: se abre en Inkscape, se ajusta y se vuelve a exportar si hace falta.
-- **PDF.** Junta las carillas ya generadas. Puede ser la agenda entera o una sección: un mes, o las primeras secciones (portada, datos personales, feriados, cumpleaños y planner anual).
+- **PDF.** Junta las carillas ya generadas. Puede ser un mes, o las primeras páginas (datos personales, feriados, cumpleaños y planner anual).
 
 Los SVG generados y los PDF van a `output/`. No se versionan. Las ilustraciones de origen siguen en `assets/images/`.
 
@@ -68,7 +80,7 @@ Los SVG generados y los PDF van a `output/`. No se versionan. Las ilustraciones 
 
 ### Feriados
 
-Entran los feriados nacionales inamovibles y trasladables de la [Ley 27.399](https://servicios.infoleg.gob.ar/infolegInternet/anexos/280000-284999/281835/norma.htm). En la agenda se muestra el día en que se observan. Los trasladables siguen el artículo 6: martes o miércoles pasan al lunes anterior; jueves o viernes, al lunes siguiente. Si caen sábado o domingo, se quedan.
+Una carilla. Entran los feriados nacionales inamovibles y trasladables de la [Ley 27.399](https://servicios.infoleg.gob.ar/infolegInternet/anexos/280000-284999/281835/norma.htm). En la agenda se muestra el día en que se observan. Los trasladables —Güemes, San Martín, el Día del Respeto a la Diversidad Cultural y el Día de la Soberanía Nacional— llevan un asterisco y, al pie, la nota «Feriados trasladables». Siguen el artículo 6: martes o miércoles pasan al lunes anterior; jueves o viernes, al lunes siguiente. Si caen sábado o domingo, se quedan.
 
 También entra el Jueves Santo. La misma ley lo fija como día no laborable y la fecha de 2027 sale de Pascua, así que es segura.
 
@@ -96,15 +108,15 @@ Los días no laborables con fines turísticos quedan afuera. El Poder Ejecutivo 
 
 ### Datos personales
 
-Una carilla. Dice «Esta Agenda pertenece a ______________» y deja lugar para contacto de emergencia, alergias, medicaciones e información adicional.
+Una carilla. El título es «datos personales», sin el año. «Esta Agenda pertenece a» con dos renglones. Después, «Contactos de emergencia»: dos contactos en la misma fila, con nombre, teléfono y correo. Alergias y medicamentos comparten la fila siguiente, con dos renglones cada uno. Al final, consideraciones especiales, con tres renglones. En las cuatro secciones, el primer renglón queda a la misma distancia del texto.
 
 ### Cumpleaños
 
-Una carilla. Los 12 meses van en filas de tres: recuadros con el nombre del mes y espacio en blanco debajo para anotar a mano.
+Una carilla. Los 12 meses van en filas de tres: recuadros con el mes en tres letras y espacio en blanco debajo para anotar a mano.
 
 ### Planner anual
 
-Dos carillas a libro abierto: enero a junio a la izquierda, julio a diciembre a la derecha.
+Dos carillas a libro abierto, leídas como filas de cuatro meses: enero y febrero a la izquierda, marzo y abril a la derecha, y así hasta noviembre y diciembre. El título es el año, solo en la carilla izquierda. Cada mes es un calendario chico. El miércoles se marca con una x y el finde va en gris.
 
 ### Carilla de día
 
@@ -134,4 +146,4 @@ Las ocho fases lunares están en [`assets/images/fases-lunares/`](assets/images/
 
 ## Estado
 
-El generador está en el paquete `agenda`. Cómo correr un mes, con `python` o con `python3`, está en [Generar](#generar). Los bocetos de portada, planner y notas están en `design/`.
+El generador está en el paquete `agenda`. Cómo correr un mes o las primeras páginas, con `python` o con `python3`, está en [Generar](#generar). Los bocetos están en `design/`.
